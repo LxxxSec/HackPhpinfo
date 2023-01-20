@@ -1,0 +1,134 @@
+{
+    "1":{
+        "name": "gettext",
+        "regexes": {
+            "regex1": {
+                "e": "^GetText Support$",
+                "v": "enabled"
+            }
+        },
+        "message": "存在gettext扩展，可以使用_()调用gettext()函数",
+        "level": "green"
+    },
+    "2": {
+        "name": "allow_url_include",
+        "regexes": {
+            "regex1": {
+                "e": "^allow_url_include$",
+                "v": "On|1"
+            }
+        },
+        "message": "allow_url_include为On状态，可以远程文件包含",
+        "level": "green"
+    },
+    "3": {
+        "name": "auto_append_file",
+        "regexes": {
+            "regex1": {
+                "e": "^auto_append_file$",
+                "v": "[^no value]"
+            }
+        },
+        "message": "存在auto_append_file文件",
+        "level": "green"
+    },
+    "4": {
+        "name": "auto_prepend_file",
+        "regexes": {
+            "regex1": {
+                "e": "^auto_prepend_file$",
+                "v": "[^no value]"
+            }
+        },
+        "message": "存在auto_prepend_file文件",
+        "level": "green"
+    },
+    "5": {
+        "name": "opcache",
+        "regexes": {
+            "regex1": {
+                "e": "^opcache.enable$",
+                "v": "On"
+            }
+        },
+        "message": "Opcache扩展为On状态",
+        "level": "green"
+    },
+    "6": {
+        "name": "PHP Version",
+        "regexes": {
+            "regex1": {
+                "e": "^PHP Version$",
+                "v": "."
+            }
+        },
+        "message": "PHP版本为: {{self.rules['6']['regexes']['regex1']['v']}}",
+        "level": "blue"
+    },
+    "7": {
+        "name": "Imagick",
+        "regexes": {
+            "regex1": {
+                "e": "^imagick classes$",
+                "v": "Imagick"
+            }
+        },
+        "message": "存在Imagick扩展",
+        "level": "green"
+    },
+    "8": {
+        "name": "FLAG",
+        "regexes": {
+            "regex1": {
+                "e": "^FLAG$",
+                "v": "."
+            }
+        },
+        "message": "FLAG环境变量为: {{self.rules['8']['regexes']['regex1']['v']}}",
+        "level": "green"
+    },
+    "9": {
+        "name": "websiteroot",
+        "regexes": {
+            "regex1": {
+                "e": "\\$_SERVER\\['DOCUMENT_ROOT'\\]",
+                "v": "."
+            }
+        },
+        "message": "网站目录为: {{self.rules['9']['regexes']['regex1']['v']}}",
+        "level": "blue"
+    },
+    "10": {
+        "name": "whoami",
+        "regexes": {
+            "regex1": {
+                "e": "^User/Group$",
+                "v": "."
+            }
+        },
+        "message": "当前用户为: {{self.rules['10']['regexes']['regex1']['v']}}",
+        "level": "blue"
+    },
+    "11": {
+        "name": "phar",
+        "regexes": {
+            "regex1": {
+                "e": "^phar.readonly$",
+                "v": "Off|0"
+            }
+        },
+        "message": "phar.readonly为Off，可能存在Phar反序列化漏洞",
+        "level": "green"
+    },
+    "12": {
+        "name": "disable_functions",
+        "regexes": {
+            "regex1": {
+                "e": "^disable_functions$",
+                "v": "[^no value]"
+            }
+        },
+        "message": "disable_functions限制以下函数: {{self.rules['12']['regexes']['regex1']['v']}}",
+        "level": "green"
+    }
+}
