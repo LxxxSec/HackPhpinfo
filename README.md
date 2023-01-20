@@ -83,8 +83,6 @@ python3 HackPhpinfo.py "curl http://127.0.0.1/phpinfo.php"
 目前测试了以下几个PHP版本都是可以正常解析的
 
 -   7.3.10
-
 -   5.4.45
-
 -   5.6.40
 -   7.4.5
