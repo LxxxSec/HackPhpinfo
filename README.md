@@ -53,23 +53,23 @@ python3 HackPhpinfo.py "curl http://127.0.0.1/phpinfo.php"
 
 规则编写说明如下：
 
--   2为规则编号
+-   6为规则编号
 -   name为规则名称
 -   regex中可以编写规则，e和v都支持python正则表达式
--   message表示探测到之后需要输出信息
+-   message表示探测到之后需要输出信息，message支持`{{}}`模板语法，用于取出值
 -   level表示输出的等级（字体颜色），目前包括：红色、绿色、蓝色。其中红色为警告，绿色比蓝色输出更重要
 
 ```json
-"2": {
-  "name": "allow_url_include",
+"6": {
+  "name": "PHP Version",
   "regexes": {
     "regex1": {
-      "e": "^allow_url_include$",
-      "v": "On|1"
+      "e": "^PHP Version$",
+      "v": "."
     }
   },
-  "message": "allow_url_include为On状态，可以远程文件包含",
-  "level": "green"
+  "message": "PHP版本为: {{self.rules['6']['regexes']['regex1']['v']}}",
+  "level": "blue"
 }
 ```
 
