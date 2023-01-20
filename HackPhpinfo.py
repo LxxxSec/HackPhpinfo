@@ -7,15 +7,14 @@ import os
 
 class Phpinfo:
     def __init__(self):
-        self.curl = sys.argv[1] + " -s --connect-timeout 5"  # -s参数取消curl输出
+        self.curl = sys.argv[1] + " -s --connect-timeout 5"  # -s参数取消curl输出，--connect-timeout设置超时
         self.content = os.popen(self.curl)
         self.rules = json.load(open("rules.json"))
         self.P = {}
         self.count = 0
         self.result = {}
-        self.level = {"green": "\033[32m", "blue": "\033[34m", "red": "\033[31m"}
-        self.end = "\033[0m"
-        print(self.level["blue"] + "[+] " + self.curl)
+        self.level = {"green": "\033[32m", "blue": "\033[34m", "red": "\033[31m", "end": "\033[0m"}
+        print(self.level["blue"] + "[+] " + self.curl + self.level["end"])
 
     def resolvePhpinfo(self):
         content = self.content
@@ -34,7 +33,7 @@ class Phpinfo:
                             self.P[e] = tdv.string
                             break
         if (not self.rules) or (not self.P):
-            print(self.level["red"] + "[-] 不存在phpinfo页面或无法解析" + self.end)
+            print(self.level["red"] + "[-] 不存在phpinfo页面或无法解析" + self.level["end"])
             sys.exit()
         # print(self.P)
 
@@ -70,8 +69,9 @@ class Phpinfo:
 
     def prinRes(self):
         logs = sorted(self.result.items(), key = lambda kv:(kv[1], kv[0]))
+        print("收集到以下 " + str(self.count) + " 条信息: ")
         for log in logs:
-            print(self.level[log[1]] + log[0] + self.end)
+            print(self.level[log[1]] + log[0] + self.level["end"])
 
 
 if __name__ == "__main__":
